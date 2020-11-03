@@ -17,7 +17,7 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 );           
-                CREATE TABLE nineties-movies (
+                CREATE TABLE movies (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     year_released INTEGER NOT NULL,

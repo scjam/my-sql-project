@@ -28,7 +28,7 @@ async function run() {
       movies.map(movie => {
         return client.query(`
                     INSERT INTO movies (name, year_released, best_picture_winner, director, owner_id)
-                    VALUES ($1, $2, $3, $4, $5);
+                    VALUES ($1, $2, $3, $4);
                 `,
         [movie.name, movie.year_released, movie.best_picture_winner, movie.director, user.id]);
       })
