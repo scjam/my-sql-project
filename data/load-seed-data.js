@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const client = require('../lib/client');
 // import our seed data:
 const movies = require('./movies.js');
@@ -28,7 +29,7 @@ async function run() {
       movies.map(movie => {
         return client.query(`
                     INSERT INTO movies (name, year_released, best_picture_winner, director, owner_id)
-                    VALUES ($1, $2, $3, $4, $5, $6);
+                    VALUES ($1, $2, $3, $4, $5);
                 `,
         [movie.name, movie.year_released, movie.best_picture_winner, movie.director, user.id]);
       })
