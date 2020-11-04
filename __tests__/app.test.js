@@ -102,5 +102,36 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('adds a movie to the database and returns it', async() => {
+      const expectation = {
+        id: 6,
+        name: 'Boogie Nights',
+        year_released: 1997,
+        best_picture_winner: false,
+        director: 'Paul Thomas Anderson',
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .post('/movies')
+        .send({
+          name: 'Boogie Nights',
+          year_released: 1997,
+          best_picture_winner: false,
+          director: 'Paul Thomas Anderson',
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allMovies = await fakeRequest(app)
+        .get('/movies')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allMovies.body.length).toEqual(6);
+    });
   });
 });
