@@ -133,5 +133,20 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
       expect(allMovies.body.length).toEqual(6);
     });
+
+    test('deletes a movie', async() => {
+      const data = await fakeRequest(app)
+        .delete('/movies/5')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allMovies = await fakeRequest(app)
+        .delete('/movies')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual('');
+      expect(allMovies.body.length).toEqual(4);
+    });
   });
 });
