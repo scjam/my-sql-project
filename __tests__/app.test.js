@@ -136,17 +136,49 @@ describe('app routes', () => {
 
     test('deletes a movie', async() => {
       const data = await fakeRequest(app)
-        .delete('/movies/5')
+        .delete('/movies/2')
         .expect('Content-Type', /json/)
         .expect(200);
 
       const allMovies = await fakeRequest(app)
-        .delete('/movies')
+        .get('/movies')
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual('');
       expect(allMovies.body.length).toEqual(4);
+    });
+
+    test.only('updates a movie in the database and returns it', async() => {
+      const expectation = {
+        id: 2,
+        name: 'Romeo + Juliet',
+        year_released: 1996,
+        best_picture_winner: false,
+        director: 'Baz Luhrmann',
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .put('/movies/2')
+        .send({
+          id: 2,
+          name: 'Romeo + Juliet',
+          year_released: 1996,
+          best_picture_winner: false,
+          director: 'Baz Luhrmann',
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allMovies = await fakeRequest(app)
+        .get('/movies')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allMovies.body.length).toEqual(5);
     });
   });
 });
