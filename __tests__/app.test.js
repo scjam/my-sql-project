@@ -149,7 +149,7 @@ describe('app routes', () => {
       expect(allMovies.body.length).toEqual(4);
     });
 
-    test.only('updates a movie in the database and returns it', async() => {
+    test('updates a movie in the database and returns it', async() => {
       const expectation = {
         id: 2,
         name: 'Romeo + Juliet',
