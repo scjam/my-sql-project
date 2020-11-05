@@ -32,7 +32,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns movies', async() => {
+    test.only('returns movies', async() => {
 
       const expectation = [
         {
@@ -69,10 +69,10 @@ describe('app routes', () => {
         },
         {
           'id': 5,
-          'name': 'The Green Mile',
+          'name': 'The Virgin Suicides',
           'year_released': 1999,
           'best_picture_winner': false,
-          'director_id': 'Frank Darabont',
+          'director_id': 'Sofia Coppola',
           'owner_id': 1
         }
       ];
