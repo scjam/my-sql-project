@@ -40,7 +40,7 @@ describe('app routes', () => {
           'name': 'Titanic',
           'year_released': 1997,
           'best_picture_winner': true,
-          'director': 'James Cameron',
+          'director_id': 'James Cameron',
           'owner_id': 1
         },
         {
@@ -48,7 +48,7 @@ describe('app routes', () => {
           'name': 'The English Patient',
           'year_released': 1996,
           'best_picture_winner': true,
-          'director': 'Anthony Minghella',
+          'director_id': 'Anthony Minghella',
           'owner_id': 1
         },
         {
@@ -56,7 +56,7 @@ describe('app routes', () => {
           'name': 'The Silence of the Lambs',
           'year_released': 1991,
           'best_picture_winner': true,
-          'director': 'Jonathan Demme',
+          'director_id': 'Jonathan Demme',
           'owner_id': 1
         },
         {
@@ -64,7 +64,7 @@ describe('app routes', () => {
           'name': 'Pulp Fiction',
           'year_released': 1994,
           'best_picture_winner': false,
-          'director': 'Quentin Tarantino',
+          'director_id': 'Quentin Tarantino',
           'owner_id': 1
         },
         {
@@ -72,7 +72,7 @@ describe('app routes', () => {
           'name': 'The Green Mile',
           'year_released': 1999,
           'best_picture_winner': false,
-          'director': 'Frank Darabont',
+          'director_id': 'Frank Darabont',
           'owner_id': 1
         }
       ];
@@ -91,7 +91,7 @@ describe('app routes', () => {
         name: 'Titanic',
         year_released: 1997,
         best_picture_winner: true,
-        director: 'James Cameron',
+        director_id: 'James Cameron',
         owner_id: 1
       };
 
@@ -109,7 +109,7 @@ describe('app routes', () => {
         name: 'Boogie Nights',
         year_released: 1997,
         best_picture_winner: false,
-        director: 'Paul Thomas Anderson',
+        director_id: 'Paul Thomas Anderson',
         owner_id: 1
       };
 
@@ -119,7 +119,7 @@ describe('app routes', () => {
           name: 'Boogie Nights',
           year_released: 1997,
           best_picture_winner: false,
-          director: 'Paul Thomas Anderson',
+          director_id: 'Paul Thomas Anderson',
           owner_id: 1
         })
         .expect('Content-Type', /json/)
@@ -155,7 +155,7 @@ describe('app routes', () => {
         name: 'Romeo + Juliet',
         year_released: 1996,
         best_picture_winner: false,
-        director: 'Baz Luhrmann',
+        director_id: 'Baz Luhrmann',
         owner_id: 1
       };
 
@@ -166,7 +166,7 @@ describe('app routes', () => {
           name: 'Romeo + Juliet',
           year_released: 1996,
           best_picture_winner: false,
-          director: 'Baz Luhrmann',
+          director_id: 'Baz Luhrmann',
           owner_id: 1
         })
         .expect('Content-Type', /json/)
