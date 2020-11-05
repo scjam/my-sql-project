@@ -109,17 +109,17 @@ describe('app routes', () => {
         name: 'Boogie Nights',
         year_released: 1997,
         best_picture_winner: false,
-        director_id: 'Paul Thomas Anderson',
+        director_id: 5,
         owner_id: 1
       };
 
       const data = await fakeRequest(app)
-        .post('/movies')
+        .post('/movies/')
         .send({
           name: 'Boogie Nights',
           year_released: 1997,
           best_picture_winner: false,
-          director_id: 'Paul Thomas Anderson',
+          director_id: 5,
           owner_id: 1
         })
         .expect('Content-Type', /json/)
@@ -155,7 +155,7 @@ describe('app routes', () => {
         name: 'Romeo + Juliet',
         year_released: 1996,
         best_picture_winner: false,
-        director_id: 'Baz Luhrmann',
+        director_id: 4,
         owner_id: 1
       };
 
@@ -166,7 +166,7 @@ describe('app routes', () => {
           name: 'Romeo + Juliet',
           year_released: 1996,
           best_picture_winner: false,
-          director_id: 'Baz Luhrmann',
+          director_id: 4,
           owner_id: 1
         })
         .expect('Content-Type', /json/)
