@@ -17,13 +17,17 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );
+                CREATE TABLE directors (
+                  id SERIAL PRIMARY KEY,
+                  name VARCHAR(256) NOT NULL
+                );          
                 CREATE TABLE movies (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     year_released INTEGER NOT NULL,
                     best_picture_winner BOOLEAN NOT NULL,
-                    director VARCHAR(256) NOT NULL,
+                    director_id INTEGER NOT NULL REFERENCES directors(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);

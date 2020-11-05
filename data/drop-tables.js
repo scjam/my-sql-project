@@ -11,6 +11,7 @@ async function run() {
     
     await client.query(`
             DROP TABLE IF EXISTS users CASCADE;
+            DROP TABLE IF EXISTS directors CASCADE;
             DROP TABLE IF EXISTS movies;
         `);
 

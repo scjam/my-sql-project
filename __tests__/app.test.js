@@ -69,10 +69,10 @@ describe('app routes', () => {
         },
         {
           'id': 5,
-          'name': 'The Green Mile',
+          'name': 'The Virgin Suicides',
           'year_released': 1999,
           'best_picture_winner': false,
-          'director': 'Frank Darabont',
+          'director': 'Sofia Coppola',
           'owner_id': 1
         }
       ];
@@ -87,12 +87,12 @@ describe('app routes', () => {
 
     test('returns a single movie', async() => {
       const expectation = {
-        id: 1,
-        name: 'Titanic',
-        year_released: 1997,
-        best_picture_winner: true,
-        director: 'James Cameron',
-        owner_id: 1
+        'id': 1,
+        'name': 'Titanic',
+        'year_released': 1997,
+        'best_picture_winner': true,
+        'director': 'James Cameron',
+        'owner_id': 1
       };
 
       const data = await fakeRequest(app)
@@ -109,7 +109,7 @@ describe('app routes', () => {
         name: 'Boogie Nights',
         year_released: 1997,
         best_picture_winner: false,
-        director: 'Paul Thomas Anderson',
+        director_id: 'Paul Thomas Anderson',
         owner_id: 1
       };
 
@@ -119,7 +119,7 @@ describe('app routes', () => {
           name: 'Boogie Nights',
           year_released: 1997,
           best_picture_winner: false,
-          director: 'Paul Thomas Anderson',
+          director_id: 'Paul Thomas Anderson',
           owner_id: 1
         })
         .expect('Content-Type', /json/)
@@ -149,13 +149,13 @@ describe('app routes', () => {
       expect(allMovies.body.length).toEqual(4);
     });
 
-    test('updates a movie in the database and returns it', async() => {
+    test.only('updates a movie in the database and returns it', async() => {
       const expectation = {
         id: 2,
         name: 'Romeo + Juliet',
         year_released: 1996,
         best_picture_winner: false,
-        director: 'Baz Luhrmann',
+        director_id: 'Baz Luhrmann',
         owner_id: 1
       };
 
@@ -166,7 +166,7 @@ describe('app routes', () => {
           name: 'Romeo + Juliet',
           year_released: 1996,
           best_picture_winner: false,
-          director: 'Baz Luhrmann',
+          director_id: 'Baz Luhrmann',
           owner_id: 1
         })
         .expect('Content-Type', /json/)
