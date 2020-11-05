@@ -32,7 +32,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test.only('returns movies', async() => {
+    test('returns movies', async() => {
 
       const expectation = [
         {
@@ -40,7 +40,7 @@ describe('app routes', () => {
           'name': 'Titanic',
           'year_released': 1997,
           'best_picture_winner': true,
-          'director_id': 'James Cameron',
+          'director': 'James Cameron',
           'owner_id': 1
         },
         {
@@ -48,7 +48,7 @@ describe('app routes', () => {
           'name': 'The English Patient',
           'year_released': 1996,
           'best_picture_winner': true,
-          'director_id': 'Anthony Minghella',
+          'director': 'Anthony Minghella',
           'owner_id': 1
         },
         {
@@ -56,7 +56,7 @@ describe('app routes', () => {
           'name': 'The Silence of the Lambs',
           'year_released': 1991,
           'best_picture_winner': true,
-          'director_id': 'Jonathan Demme',
+          'director': 'Jonathan Demme',
           'owner_id': 1
         },
         {
@@ -64,7 +64,7 @@ describe('app routes', () => {
           'name': 'Pulp Fiction',
           'year_released': 1994,
           'best_picture_winner': false,
-          'director_id': 'Quentin Tarantino',
+          'director': 'Quentin Tarantino',
           'owner_id': 1
         },
         {
@@ -72,7 +72,7 @@ describe('app routes', () => {
           'name': 'The Virgin Suicides',
           'year_released': 1999,
           'best_picture_winner': false,
-          'director_id': 'Sofia Coppola',
+          'director': 'Sofia Coppola',
           'owner_id': 1
         }
       ];
@@ -87,12 +87,12 @@ describe('app routes', () => {
 
     test('returns a single movie', async() => {
       const expectation = {
-        id: 1,
-        name: 'Titanic',
-        year_released: 1997,
-        best_picture_winner: true,
-        director_id: 'James Cameron',
-        owner_id: 1
+        'id': 1,
+        'name': 'Titanic',
+        'year_released': 1997,
+        'best_picture_winner': true,
+        'director': 'James Cameron',
+        'owner_id': 1
       };
 
       const data = await fakeRequest(app)
@@ -149,7 +149,7 @@ describe('app routes', () => {
       expect(allMovies.body.length).toEqual(4);
     });
 
-    test('updates a movie in the database and returns it', async() => {
+    test.only('updates a movie in the database and returns it', async() => {
       const expectation = {
         id: 2,
         name: 'Romeo + Juliet',
